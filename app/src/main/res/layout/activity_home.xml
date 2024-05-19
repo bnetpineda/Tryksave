@@ -34,8 +34,9 @@
 
             <com.google.android.material.bottomappbar.BottomAppBar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:id="@+id/bottomAppBar"
+                app:fabAnchorMode="cradle"
                 android:layout_gravity="bottom"
                 android:backgroundTint="@color/green"
                 app:fabCradleMargin="10dp"

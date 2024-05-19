@@ -19,12 +19,19 @@
             android:ellipsize="end"
             android:maxLines="1"/>
 
+        <ImageView
+            android:id="@+id/down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loc"
+            android:src="@drawable/arrow_downward"/>
+
         <TextView
             android:id="@+id/dest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bahay ni Makmak"
-            android:layout_below="@id/loc"
+            android:layout_below="@id/down"
             android:textColor="@color/green"
             android:maxLength="30"
             android:ellipsize="end"

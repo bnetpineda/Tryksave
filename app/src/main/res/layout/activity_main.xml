@@ -34,12 +34,12 @@
 
             <com.google.android.material.bottomappbar.BottomAppBar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:id="@+id/bottomAppBar"
+                app:fabAnchorMode="cradle"
+                app:fabCradleRoundedCornerRadius="75dp"
                 android:layout_gravity="bottom"
                 android:backgroundTint="@color/green"
-                app:fabCradleMargin="10dp"
-                app:fabCradleRoundedCornerRadius="70dp"
                 app:fabAlignmentMode="center">
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -52,13 +52,13 @@
             </com.google.android.material.bottomappbar.BottomAppBar>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/fab"
                 android:src="@drawable/baseline_emoji_transportation_24"
                 app:layout_anchor="@id/bottomAppBar"
-                app:maxImageSize="40dp"/>
-
+                app:maxImageSize="40dp"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Circle" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -74,7 +74,7 @@
         app:itemTextColor="@color/black"
         android:theme="@style/ThemeOverlay.AppCompat.navTheme"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/navigation_drawer_menu"/>
+        app:menu="@menu/navigation_drawer_menu" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
