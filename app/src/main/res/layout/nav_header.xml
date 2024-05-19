@@ -17,20 +17,22 @@
 
 
     <TextView
+        android:id="@+id/TextViewNavUserFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/user_name"
         android:textColor="@color/white"
         android:textSize="23sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/TextViewNavUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="@string/ronaldtimbol_gmail_com"
         android:textColor="@color/white"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="14sp" />
 
 
 </LinearLayout>

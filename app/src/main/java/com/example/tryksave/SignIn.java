@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignIn extends AppCompatActivity {
     private TextView textViewBack;
-    private Intent intentGetStarted, intentHome;
+    private Intent intentGetStarted, intentMain;
 
     private Button btnSignIn;
     private EditText editEmail, editPassword;
@@ -34,7 +34,7 @@ public class SignIn extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         textViewBack = findViewById(R.id.TextViewBackSignUp);
         intentGetStarted = new Intent(this, Get_Started.class);
-        intentHome = new Intent(this, Home.class);
+        intentMain = new Intent(this, MainActivity.class);
         editEmail = findViewById(R.id.EditTextEmailSignIn);
         editPassword = findViewById(R.id.EditTextEndLocation);
         btnSignIn = findViewById(R.id.ButtonSignIn);
@@ -85,7 +85,7 @@ public class SignIn extends AppCompatActivity {
                                         // Sign in success, update UI with the signed-in user's information
                                         Toast.makeText(SignIn.this, "Signed In",
                                                 Toast.LENGTH_SHORT).show();
-                                        startActivity(intentHome);
+                                        startActivity(intentMain);
                                         finish(); // Close the current activity
                                     } else {
                                         // User is null

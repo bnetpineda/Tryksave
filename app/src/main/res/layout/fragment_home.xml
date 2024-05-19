@@ -17,12 +17,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TextViewHomeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi, Ronald Timbol"
-        android:textSize="22sp"
         android:layout_marginTop="12dp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
@@ -35,9 +34,9 @@
         android:text="Good Morning!"
         android:textStyle="bold"
         android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="@+id/TextViewHomeName"
+        app:layout_constraintStart_toStartOf="@+id/TextViewHomeName"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewHomeName" />
 
     <FrameLayout
         android:layout_width="match_parent"
