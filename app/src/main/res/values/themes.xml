@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.Tryksave" parent="Base.Theme.Tryksave" />
+    <style name="ThemeOverlay.AppCompat.navTheme">
+        <item name="colorPrimary">@color/white</item>
+    </style>
 </resources>
