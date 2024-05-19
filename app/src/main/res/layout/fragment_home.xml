@@ -2,61 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green"
-    tools:context=".FragmentHome">
+    tools:context=".HomeFragment">
 
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <fragment
-        android:id="@+id/end_autocomplete_fragment"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-        android:layout_width="393dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="99dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/account_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/estimation_button"
-        android:layout_width="363dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/importantbuttonwhite"
-        android:fontFamily="@font/clashgroteskregular"
-        android:text="Compute"
-        android:textColor="#43A047"
-        android:textSize="21sp"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_autocomplete_fragment" />
-
-    <fragment
-        android:id="@+id/start_autocomplete_fragment"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-        android:layout_width="393dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end_autocomplete_fragment" />
+        android:text="Hi. Ronald Timbol"
+        android:textSize="22sp"
+        android:layout_marginTop="12dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/estimation_text_view"
-        android:layout_width="393dp"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="93dp"
-        android:paddingTop="16dp"
-        android:text=""
+        android:text="Good Morning!"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estimation_button" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/green"
+            android:textAlignment="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+        </RelativeLayout>
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
