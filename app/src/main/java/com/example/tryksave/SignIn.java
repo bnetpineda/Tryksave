@@ -3,9 +3,7 @@ package com.example.tryksave;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignIn extends AppCompatActivity {
     private TextView textViewBack;
@@ -26,7 +25,6 @@ public class SignIn extends AppCompatActivity {
     private Button btnSignIn;
     private EditText editEmail, editPassword;
 
-    private SharedPreferences sharedPreferences;
     FirebaseAuth mAuth;
 
     @Override
@@ -40,7 +38,6 @@ public class SignIn extends AppCompatActivity {
         editEmail = findViewById(R.id.EditTextEmailSignIn);
         editPassword = findViewById(R.id.EditTextEndLocation);
         btnSignIn = findViewById(R.id.ButtonSignIn);
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         textViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,16 +80,20 @@ public class SignIn extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(SignIn.this, "Signed In",
-                                            Toast.LENGTH_SHORT).show();
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putBoolean("isLoggedIn", true);
-                                    editor.apply();
-                                    startActivity(intentHome);
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    if (user != null) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Toast.makeText(SignIn.this, "Signed In",
+                                                Toast.LENGTH_SHORT).show();
+                                        startActivity(intentHome);
+                                        finish(); // Close the current activity
+                                    } else {
+                                        // User is null
+                                        Toast.makeText(SignIn.this, "User is null after signing in", Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(SignIn.this, "Authentication failed.",
+                                    Toast.makeText(SignIn.this, "Authentication failed: " + task.getException().getMessage(),
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }

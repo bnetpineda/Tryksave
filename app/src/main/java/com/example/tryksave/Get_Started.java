@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Get_Started extends AppCompatActivity {
 
     private Button btnGetStarted;
 
-    private SharedPreferences sharedPreferences;
     private Intent intentSignUp;
 
     @Override
@@ -22,10 +24,9 @@ public class Get_Started extends AppCompatActivity {
         setContentView(R.layout.activity_get_started);
         btnGetStarted = findViewById(R.id.ButtonGetStarted);
         intentSignUp = new Intent(this, SignUp.class);
-        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
-        if (!isLoggedIn) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
             startActivity(new Intent(getApplicationContext(), Home.class));
             finish();
         }
