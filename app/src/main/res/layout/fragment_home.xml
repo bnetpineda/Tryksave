@@ -49,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RelativeLayout
+            android:id="@+id/toollbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:background="@color/green"
@@ -57,13 +58,98 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dashboard"
+                android:text="@string/dashboard"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 android:layout_centerVertical="true"
                 android:textStyle="bold"
-                android:textSize="18dp"/>
+                android:textSize="18sp"/>
         </RelativeLayout>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/view_labels"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="Overall Expenses :"/>
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="0.00"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="200dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/expenses_history_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:backgroundTint="@color/green"
+            android:layout_marginTop="590dp"
+            android:layout_marginStart="250dp"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="40dp">
+
+            <RelativeLayout
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/add_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_add_24"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/add_icon"
+                    android:textColor="@color/black"
+                    android:text="Add Transaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
