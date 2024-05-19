@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".Get_Started">
+
+    <Button
+        android:id="@+id/ButtonGetStarted"
+        android:layout_width="347dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/importantbuttonwhite"
+        android:fontFamily="@font/clashgroteskregular"
+        android:text="@string/get_started"
+        android:textColor="#43A047"
+        android:textSize="21sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewBackSignUp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="217dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/clashgroteskbold"
+        android:text="Let's Get Started"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="HardcodedText,TextSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/TextViewBackSignUp"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/clashgroteskregular"
+        android:text="Avoid from being overcharged \n and ensuring a transportation experience"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="HardcodedText,TextContrastCheck,TextSizeCheck" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="333dp"
+        android:layout_height="410dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tricycle1"
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

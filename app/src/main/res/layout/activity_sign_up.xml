@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignIn"
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="-10dp">
+
+
+    <EditText
+        android:id="@+id/EditTextEmailSignIn"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/signin_rounded"
+        android:ems="10"
+        android:fontFamily="@font/clashgroteskregular"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/gray3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/TextViewBackSignUp"
+        android:layout_width="41dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/clashgroteskmedium"
+        android:text="Back"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="336dp"
+        android:layout_marginBottom="644dp"
+        android:background="@drawable/circlegreendesign"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ButtonSignIn"
+        android:layout_width="325dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/importantbutton"
+        android:fontFamily="@font/clashgroteskmedium"
+        android:text="Sign Up"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditTextEmail" />
+
+    <EditText
+        android:id="@+id/EditTextEndLocation"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/signin_rounded"
+        android:ems="10"
+        android:fontFamily="@font/clashgroteskregular"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EditTextEmail"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/signin_rounded"
+        android:ems="10"
+        android:fontFamily="@font/clashgroteskregular"
+        android:hint="Email"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/gray3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/clashgrotesksemibold"
+        android:text="Sign Up"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/TextViewAlreadyAccount"
+        android:layout_width="197dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/clashgrotesksemibold"
+        android:text="Already have an account?"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonSignIn"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/TextViewShowSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/clashgrotesksemibold"
+        android:text="Show"
+        android:textColor="@color/green"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/EditTextEndLocation"
+        app:layout_constraintTop_toTopOf="@+id/EditTextEndLocation" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="328dp"
+        android:layout_marginTop="644dp"
+        android:background="@drawable/circlegreendesign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/circlegreendesign"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
