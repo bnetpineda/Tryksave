@@ -77,8 +77,8 @@
         android:id="@+id/navigation_drawer"
         android:layout_gravity="start"
         android:background="@color/white"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
+        app:itemIconTint="@drawable/bottom_nav_icon_color"
+        app:itemTextColor="@drawable/bottom_nav_icon_color"
         android:theme="@style/ThemeOverlay.AppCompat.navTheme"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/navigation_drawer_menu" />
