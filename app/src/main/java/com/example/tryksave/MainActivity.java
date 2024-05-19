@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fabb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent jump = new Intent(getApplicationContext(),FabSearchFragment.class);
-                startActivity(jump);
+                openFragment(new FragmentHome());
             }
         });
 
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int itemId = menuItem.getItemId();
-         if (itemId == R.id.settings) {
+        if (itemId == R.id.settings) {
             openFragment(new SettingsFragment());
         } else if (itemId == R.id.notifs) {
             openFragment(new NotificationsFragment());
@@ -105,4 +104,3 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         transaction.commit();
     }
 }
-

@@ -27,7 +27,7 @@ public class Get_Started extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            startActivity(new Intent(getApplicationContext(), Home.class));
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
