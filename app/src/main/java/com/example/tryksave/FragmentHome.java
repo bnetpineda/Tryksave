@@ -166,7 +166,6 @@
             estimationTextView.setText(estimationMessage);
 
 
-            // Save the data to Firestore
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
             if (user != null) {
