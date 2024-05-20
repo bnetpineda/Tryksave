@@ -79,7 +79,8 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/current_loc"
+                android:id="@+id/end_autocomplete_fragment"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -94,7 +95,8 @@
                 android:padding="7dp" />
 
             <EditText
-                android:id="@+id/destination"
+                android:id="@+id/start_autocomplete_fragment"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -109,4 +111,27 @@
                 android:padding="7dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/estimation_button"
+        android:layout_width="363dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/importantbuttonwhite"
+        android:fontFamily="@font/clashgroteskregular"
+        android:text="Compute"
+        android:textColor="#43A047"
+        android:textSize="21sp"
+        app:backgroundTint="@null" />
+
+    <TextView
+        android:id="@+id/estimation_text_view"
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:paddingTop="16dp"
+        android:text=""
+        />
+
 </FrameLayout>
