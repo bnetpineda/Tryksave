@@ -68,7 +68,7 @@
         android:background="@drawable/importantbuttonwhite"
         android:fontFamily="@font/clashgroteskregular"
         android:text="Compute"
-        android:textColor="#43A047"
+        android:textColor="@color/white"
         android:textSize="21sp"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,10 +87,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/clashgroteskregular"
         android:text="Estimation Summary"
         android:background="@color/quantum_googgreen"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:gravity="center"
         android:textSize="18sp"/>
 

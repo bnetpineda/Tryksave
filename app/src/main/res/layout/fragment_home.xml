@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_3"
     tools:context=".HomeFragment">
 
     <ImageView
@@ -20,6 +21,8 @@
         android:id="@+id/TextViewHomeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/clashgroteskregular"
         android:layout_marginTop="12dp"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -31,6 +34,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/clashgroteskvariable"
         android:text="Good Morning!"
         android:textStyle="bold"
         android:textSize="36sp"
@@ -41,6 +46,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:layout_marginTop="230dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,8 +64,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textAlignment="center"
+                android:fontFamily="@font/clashgrotesksemibold"
                 android:layout_centerVertical="true"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
