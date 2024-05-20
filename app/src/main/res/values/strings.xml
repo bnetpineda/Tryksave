@@ -24,4 +24,5 @@
     <string name="notifications">Notifications</string>
     <string name="fab_description">Search Destination</string>
     <string name="dashboard">Dashboard</string>
+    <string name="records">Records</string>
 </resources>

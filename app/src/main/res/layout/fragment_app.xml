@@ -65,7 +65,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="270dp"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/importantbuttonwhite"
+        android:background="@drawable/importantbutton"
         android:fontFamily="@font/clashgroteskregular"
         android:text="Compute"
         android:textColor="@color/white"
