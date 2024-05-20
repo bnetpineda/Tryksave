@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/rounded_square_outline"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -13,20 +15,20 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:textColor="@color/quantum_googgreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Duration"
+            android:textColor="@color/quantum_googgreen"
             app:layout_constraintBaseline_toBaselineOf="@+id/duration_text"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/duration_text"
-            android:textColor="@color/quantum_googred"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Duration"
+            android:textColor="@color/quantum_googred"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -37,20 +39,20 @@
 
         <TextView
             android:id="@+id/distance_text"
-            android:textColor="@color/quantum_googred"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Distance"
+            android:textColor="@color/quantum_googred"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView4"
-            android:textColor="@color/quantum_googgreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Distance"
+            android:textColor="@color/quantum_googgreen"
             app:layout_constraintBaseline_toBaselineOf="@+id/distance_text"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,20 +66,20 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:textColor="@color/quantum_googgreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Estimated Fare Price"
+            android:textColor="@color/quantum_googgreen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/estimated_fare_price"
-            android:textColor="@color/quantum_googred"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Estimated Fare Price"
+            android:textColor="@color/quantum_googred"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
