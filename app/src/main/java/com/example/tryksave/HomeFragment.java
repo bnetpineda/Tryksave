@@ -37,10 +37,6 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView recyclerView;
-    private TravelInfoAdapter adapter;
-    private List<TravelInfo> travelInfoList;
-
     private double totalDistance = 0.0;
     private double totalDuration = 0.0;
     private double totalEstimatedFarePrice = 0.0;
@@ -53,21 +49,13 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view1 = inflater.inflate(R.layout.fragment_home, container, false);
-        View view = inflater.inflate(R.layout.fragment_records, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        TextView userHomeFullName = view1.findViewById(R.id.TextViewHomeName);
+        TextView userHomeFullName = view.findViewById(R.id.TextViewHomeName);
         if (user == null) {
             startActivity(new Intent(getContext(), SignIn.class));
         }
 
-        recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        travelInfoList = new ArrayList<>();
-        adapter = new TravelInfoAdapter(getContext(), travelInfoList);
-        recyclerView.setAdapter(adapter);
-
-        fetchTravelInfoData();
 
         if (user != null) {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -90,27 +78,7 @@ public class HomeFragment extends Fragment {
                         }
                     });
 
-        }return view1;
+        }return view;
     }
 
-    private void fetchTravelInfoData() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // Replace with dynamic user ID if needed
-
-        db.collection("users").document(user.getUid())
-                .collection("travelInfo")
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    if (!queryDocumentSnapshots.isEmpty()) {
-                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            TravelInfo travelInfo = documentSnapshot.toObject(TravelInfo.class);
-                            travelInfoList.add(travelInfo);
-                        }
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        Log.d("Firestore", "No documents found in travelInfo collection!");
-                    }
-                })
-                .addOnFailureListener(e -> Log.w("Firestore", "Error getting documents", e));
-    }
 }

@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (itemId == R.id.home){
                     openFragment(new HomeFragment());
                 }else {
-                    openFragment(new FavoritesFragment());
+                    openFragment(new RecordsFragment());
                     return true;
                 }
                 return false;
