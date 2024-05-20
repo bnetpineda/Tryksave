@@ -55,48 +55,37 @@
                 Places.initialize(requireContext(), "AIzaSyCfEmbt8VnQ0w-FUpIUCAAGpWLhKF14DWQ");
             }
 
-            // Initialize the starting point AutocompleteSupportFragment
             AutocompleteSupportFragment startAutocompleteFragment = (AutocompleteSupportFragment)
                     getChildFragmentManager().findFragmentById(R.id.start_autocomplete_fragment);
 
-            // Initialize the endpoint AutocompleteSupportFragment
             AutocompleteSupportFragment endAutocompleteFragment = (AutocompleteSupportFragment)
                     getChildFragmentManager().findFragmentById(R.id.end_autocomplete_fragment);
 
-            // Specify the types of place data to return
             startAutocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG));
             endAutocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG));
 
-            // Set up PlaceSelectionListener for the starting point
             startAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
                 public void onPlaceSelected(@NonNull Place place) {
                     // Handle the selected starting point
                     startLocation = place.getLatLng();
                     Log.i("StartPlaceSelected", "Place: " + place.getName() + ", " + place.getId());
-                    // Do something with the selected starting point
                 }
 
                 @Override
                 public void onError(@NonNull Status status) {
-                    // Handle the error
                     Log.i("StartPlaceError", "An error occurred: " + status);
                 }
             });
-
-            // Set up PlaceSelectionListener for the endpoint
             endAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
                 public void onPlaceSelected(@NonNull Place place) {
-                    // Handle the selected endpoint
                     endLocation = place.getLatLng();
                     Log.i("EndPlaceSelected", "Place: " + place.getName() + ", " + place.getId());
-                    // Do something with the selected endpoint
                 }
 
                 @Override
                 public void onError(@NonNull Status status) {
-                    // Handle the error
                     Log.i("EndPlaceError", "An error occurred: " + status);
                 }
             });
@@ -150,13 +139,12 @@
             String distanceText = distance.get("text").getAsString();
             String durationText = duration.get("text").getAsString();
 
-            final float INITIAL_FARE_PRICE = 10.0f; // Using floating-point for prices
-            final float DISTANCE_RATE = 19.0f; // Using floating-point for rate
-            final float DURATION_RATE = 2.0f; // Using floating-point for rate
+            final float INITIAL_FARE_PRICE = 10.0f;
+            final float DISTANCE_RATE = 19.0f;
+            final float DURATION_RATE = 2.0f;
 
-            // Parse distance and duration as floats
-            float distanceValue = Float.parseFloat(distanceText.split(" ")[0]); // Extract numeric part
-            float durationValue = Float.parseFloat(durationText.split(" ")[0]); // Extract numeric part
+            float distanceValue = Float.parseFloat(distanceText.split(" ")[0]);
+            float durationValue = Float.parseFloat(durationText.split(" ")[0]);
 
             float estimatedFarePrice = (distanceValue * DISTANCE_RATE) + INITIAL_FARE_PRICE + (durationValue * DURATION_RATE);
             String stringEstimatedFarePrice = String.format("%.2f", estimatedFarePrice);
@@ -175,7 +163,7 @@
                 estimation.put("durationText", durationText);
                 estimation.put("estimatedFarePrice", stringEstimatedFarePrice);
                 db.collection("users").document(user.getUid())
-                        .collection("estimations")
+                        .collection("travelInfo")
                         .add(estimation)
                         .addOnSuccessListener(documentReference -> Log.d("Firestore", "DocumentSnapshot added with ID: " + documentReference.getId()))
                         .addOnFailureListener(e -> Log.w("Firestore", "Error adding document", e));

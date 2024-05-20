@@ -43,10 +43,19 @@
         android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
         android:layout_width="393dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end_autocomplete_fragment" />
+        app:layout_constraintTop_toBottomOf="@+id/end_autocomplete_fragment"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/set_bars"
+        android:drawableStart="@drawable/currenr_loc_icon"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="@string/loc"
+        android:inputType="text"
+        android:padding="7dp" />
 
     <TextView
         android:id="@+id/estimation_text_view"

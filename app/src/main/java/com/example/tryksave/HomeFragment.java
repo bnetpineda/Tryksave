@@ -2,6 +2,7 @@ package com.example.tryksave;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,54 +25,53 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
 
-    DatabaseReference databaseReference;
-    MyAdapter myAdapter;
-    ArrayList<User> list;
+    private RecyclerView recyclerView;
+    private TravelInfoAdapter adapter;
+    private List<TravelInfo> travelInfoList;
+
+    private double totalDistance = 0.0;
+    private double totalDuration = 0.0;
+    private double totalEstimatedFarePrice = 0.0;
+
+    private TextView totalDistanceTextView;
+    private TextView totalDurationTextView;
+    private TextView totalEstimatedFarePriceTextView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        TextView userHomeFullName = view.findViewById(R.id.TextViewHomeName);
+        View view1 = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_records, container, false);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        TextView userHomeFullName = view1.findViewById(R.id.TextViewHomeName);
+        if (user == null) {
+            startActivity(new Intent(getContext(), SignIn.class));
+        }
 
-        RecyclerView recycleView = view.findViewById(R.id.expenses_history_recycler);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        recycleView.setHasFixedSize(true);
-        recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        travelInfoList = new ArrayList<>();
+        adapter = new TravelInfoAdapter(getContext(), travelInfoList);
+        recyclerView.setAdapter(adapter);
 
-        list = new ArrayList<>();
-        myAdapter = new MyAdapter(this,list);
-        recycleView.setAdapter(myAdapter);
+        fetchTravelInfoData();
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                list.add(user);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        if (currentUser != null) {
-            String userId = currentUser.getUid();
+        if (user != null) {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("users").document(userId).collection("userDetails")
+            db.collection("users").document(user.getUid()).collection("userDetails")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -89,8 +89,28 @@ public class HomeFragment extends Fragment {
                             }
                         }
                     });
-        }
 
-        return view;
+        }return view1;
+    }
+
+    private void fetchTravelInfoData() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // Replace with dynamic user ID if needed
+
+        db.collection("users").document(user.getUid())
+                .collection("travelInfo")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.isEmpty()) {
+                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            TravelInfo travelInfo = documentSnapshot.toObject(TravelInfo.class);
+                            travelInfoList.add(travelInfo);
+                        }
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        Log.d("Firestore", "No documents found in travelInfo collection!");
+                    }
+                })
+                .addOnFailureListener(e -> Log.w("Firestore", "Error getting documents", e));
     }
 }
